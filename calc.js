@@ -3,8 +3,9 @@ let b = ''; // второе число
 let sign = ''; // знак операции
 let finish = false;
 
+
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'X', '/'];
+const action = ['-', '+', 'X', '/', '%'];
 
 // экран
 const out = document.querySelector('.calc-screen p');
@@ -48,7 +49,7 @@ document.querySelector('.buttons').onclick = (event) => {
         return;
     }
 
-    // если нажата клавиша + - / *
+    // если нажата клавиша + - / * %
     if (action.includes(key)) {
         sign = key;
         out.textContent = sign;
@@ -78,6 +79,9 @@ document.querySelector('.buttons').onclick = (event) => {
                     return;
                 }
                 a = a / b;
+                break;
+            case "%":
+                a = a / 100;
                 break;
         }
         finish = true;
